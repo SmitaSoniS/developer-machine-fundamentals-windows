@@ -1,114 +1,126 @@
-# Developer Machine Fundamentals Checklist (Windows)
+# Windows Development Environment Management Checklist
 
-A hands-on checklist to understand how your development machine works beyond just writing code.
+This checklist helps build practical understanding of how a developer machine works and how to maintain a clean, reliable development environment.
 
 ---
 
-## Windows System & Storage Management
+## 1. Disk Structure & Storage Awareness
 
-**Outcome:** You understand what your machine physically looks like.
+**Outcome:** You understand what your machine physically looks like and where storage is being used.
 
-### Disk Structure Awareness
-
-* [ ] Open File Explorer and identify all available drives on system (`C:`, `D:` etc.)
+* [ ] Identify all available drives on system (C:, D:, etc.)
 * [ ] Check total size and free space available on each drive
-* [ ] Open Disk Management and determine whether your system uses one partitioned disk or multiple physical disks
-* [ ] Document your findings
-* [ ] Locate Windows installation directory
-* [ ] Verify system files exist inside the installation folder
+* [ ] Open Disk Management and determine whether system uses one partitioned disk or multiple physical disks
+* [ ] Locate Windows installation directory and verify system files exist there
+* [ ] Record free space percentage on all drives
+* [ ] Ensure no drive is above 85% utilization
+* [ ] Ensure at least 20–25% free space remains on system drive (C:)
+* [ ] Identify top 5 largest folders consuming storage
+* [ ] Remove unnecessary large files and verify measurable storage recovery
 
 ---
 
-## File Organization
+## 2. File & Project Organization
 
-**Outcome:** No more random files on Desktop and Downloads.
+**Outcome:** Project storage becomes structured and predictable.
 
-* [ ] Create one dedicated parent folder for all coding projects (`D:\Code` or `C:\Code`)
-* [ ] Create one archive folder and move one inactive or old project into archive
-* [ ] Create separate folders for Python practice, projects, experiments, and datasets
-* [ ] Move at least 3 existing coding/project folders into new organized structure *(skip if none exist)*
-* [ ] Open moved projects in VS Code and verify everything still runs correctly
-
----
-
-## Storage Awareness
-
-**Outcome:** You know what is consuming disk space.
-
-* [ ] Check free space on `C:` drive and record available storage
-* [ ] Check free space on `D:` drive and record available storage
-* [ ] Delete unnecessary files and verify storage space changes
-* [ ] Use Windows Storage Settings or File Explorer to identify top 5 folders consuming the most storage
+* [ ] Create one dedicated parent folder for all coding projects (example `D:\Code`)
+* [ ] Create separate folders for Projects, Practice, Experiments, Datasets, and Archive
+* [ ] Confirm no coding projects remain scattered across Desktop, Downloads, or random folders
+* [ ] Move inactive or old projects into archive folder
+* [ ] Verify organized projects open correctly in VS Code
 
 ---
 
-## Python Installation Awareness
+## 3. Python Installation & Environment Awareness
 
-**Outcome:** You stop feeling confused about which Python is running.
+**Outcome:** You understand which Python is running and how environments work.
 
-* [ ] Locate where Python is installed on machine
+* [ ] Identify all installed Python versions
 * [ ] Run `where python` and verify active Python executable
-* [ ] Check all Python versions installed on machine
-* [ ] Install one package using `pip`
-* [ ] Locate installed package files on disk
-* [ ] Verify installation path
+* [ ] Locate where Python is installed on machine
+* [ ] Confirm no unnecessary duplicate Python installations exist
+* [ ] Create and activate a virtual environment
+* [ ] Locate `venv/` folders across projects
+* [ ] Check size and location of virtual environments
+* [ ] Delete one unused virtual environment
+* [ ] Recreate deleted environment successfully
+* [ ] Install package using pip and verify installation path
 
 ---
 
-## Temporary Files and Cache
+## 4. Cache, Temporary Files & Cleanup
 
-**Outcome:** You understand what development tools store on disk.
+**Outcome:** Temporary and cached files do not silently consume storage.
 
-* [ ] Locate Windows temporary files using system settings
-* [ ] Delete temporary files using Windows cleanup utility
-* [ ] Locate Python `__pycache__` folder created after running script
-* [ ] Locate `pip` cache folder and inspect stored package files
-* [ ] Locate VS Code extension installation folder and inspect disk usage
-
----
-
-## Memory (RAM) vs Storage
-
-**Outcome:** You understand the difference between RAM and disk.
-
-* [ ] Open Task Manager and identify current RAM usage
-* [ ] Open VS Code and observe RAM usage increase
-* [ ] Run Python script and observe memory usage change
-* [ ] Compare difference between RAM usage and disk storage usage
-* [ ] Close running applications and verify RAM usage decreases
+* [ ] Empty recycle bin and verify storage increase
+* [ ] Delete unnecessary files from Downloads folder
+* [ ] Delete duplicate copies of old project folders
+* [ ] Locate Windows temporary files using `%temp%`
+* [ ] Run Windows cleanup utility and remove temporary files
+* [ ] Locate Python `__pycache__` folders
+* [ ] Delete unnecessary `__pycache__` folders
+* [ ] Locate pip cache using `pip cache dir`
+* [ ] Inspect cached package files
+* [ ] Clear pip cache using `pip cache purge`
+* [ ] Verify storage space recovery after cleanup
 
 ---
 
-## Path and Installation Conflicts
+## 5. Software Installation & Developer Tool Audit
 
-**Outcome:** You understand why *Python not found* and version conflicts happen.
+**Outcome:** Installed software footprint is intentional and minimal.
 
-* [ ] Identify all installed Python versions on machine
-* [ ] Verify active Python executable using `where python`
-* [ ] Change Python interpreter in VS Code and verify different interpreter is being used
-* [ ] Fix incorrect interpreter selection and run project successfully
-
----
-
-## Software Installation Awareness
-
-**Outcome:** You understand where installed developer tools live on disk.
-
-* [ ] Install one developer tool (example: VS Code or Git)
-* [ ] Locate installation directory on disk
-* [ ] Verify executable path
-* [ ] Understand how installed software adds entries to system PATH
+* [ ] Review installed applications in Windows settings
+* [ ] Identify installation locations of Python, Git, and VS Code
+* [ ] Uninstall unnecessary or unused applications
+* [ ] Review installed VS Code extensions
+* [ ] Remove unused VS Code extensions
+* [ ] Remove old unused workspace folders from VS Code recent projects list
+* [ ] Confirm no duplicate developer tools are installed accidentally
 
 ---
 
-## Final Goal
+## 6. RAM, Process & Performance Awareness
 
-By completing this checklist, you should understand:
+**Outcome:** You understand how applications consume system resources.
 
-* How Windows organizes disks and storage
-* How Python is installed and executed
-* How environment variables and PATH work
-* Where development tools store files
-* How caches consume disk space
-* Why interpreter conflicts happen
-* How your machine behaves underneath your code
+* [ ] Open Task Manager and record baseline RAM usage when system is idle
+* [ ] Open browser, VS Code, and Python process simultaneously
+* [ ] Observe RAM usage increase
+* [ ] Record top 3 applications consuming highest RAM
+* [ ] Close at least one unnecessary high-memory process
+* [ ] Verify RAM is released properly
+* [ ] Compare RAM usage versus disk storage usage
+* [ ] Restart system and verify baseline RAM usage is healthy
+
+---
+
+## 7. PATH, Installation Conflicts & Troubleshooting
+
+**Outcome:** You understand why Python and environment conflicts happen.
+
+* [ ] Identify all installed Python versions
+* [ ] Run `where python` and verify active Python executable
+* [ ] Understand how PATH environment variable works
+* [ ] Change Python interpreter in VS Code
+* [ ] Verify different interpreter is being used successfully
+* [ ] Fix incorrect interpreter selection
+* [ ] Understand causes of Python not found, pip not found, and version conflicts
+
+---
+
+## 8. Developer Readiness Verification
+
+**Outcome:** Machine is fully development ready without setup friction.
+
+* [ ] Create a new Python project
+* [ ] Open project in VS Code
+* [ ] Create and activate virtual environment successfully
+* [ ] Install package successfully using pip
+* [ ] Run Python script successfully from terminal
+* [ ] Verify project runs without path issues
+* [ ] Delete project completely
+* [ ] Recreate project cleanly without leftover environment issues
+
+---
